@@ -5,6 +5,7 @@ import Content from '../commom/template/content'
 import Tabs from '../commom/tab/tabs'
 import TabsHeader from '../commom/tab/tabsHeader'
 import TabsContent from '../commom/tab/tabsContent'
+import TabHeader from '../commom/tab/tabHeader'
 
 class BillinbCycle extends Component {
     render() {
@@ -14,10 +15,13 @@ class BillinbCycle extends Component {
                 <Content>
                     <Tabs>
                         <TabsHeader>
-
+                            <TabHeader label='Listar' icon='bars' target='tabList' />
+                            <TabHeader label='Incluir' icon='plus' target='tabCreate' />
+                            <TabHeader label='Alterar' icon='pencil' target='tabUpdate' />
+                            <TabHeader label='Excluir' icon='trash-o' target='tabDelete' />
                         </TabsHeader>
                         <TabsContent>
-                            
+
                         </TabsContent>
                     </Tabs>
                 </Content>
