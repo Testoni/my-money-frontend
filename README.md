@@ -1,6 +1,6 @@
 # my-money-frontend
 
-npm start
+npm run dev
 
 ------------
 
