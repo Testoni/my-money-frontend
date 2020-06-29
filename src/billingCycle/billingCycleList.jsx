@@ -32,7 +32,7 @@ class BillingCycleList extends Commponent {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.rendrRows()}
+                        {this.renderRows()}
                     </tbody>
                 </table>
             </div>
