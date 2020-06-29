@@ -9,6 +9,17 @@ class BillingCycleList extends Commponent {
         this.props.getList()
     }
 
+    renderRows() {
+        const list = this.props.list || []
+        return list.map(bc => (
+            <tr key={bc._id}>
+                <td>{bc.name}</td>
+                <td>{bc.month}</td>
+                <td>{bc.year}</td>
+            </tr>
+        ))
+    }
+
     render() {
         return (
             <div>
@@ -21,7 +32,7 @@ class BillingCycleList extends Commponent {
                         </tr>
                     </thead>
                     <tbody>
-
+                        {this.rendrRows()}
                     </tbody>
                 </table>
             </div>
