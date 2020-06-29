@@ -11,6 +11,7 @@ import TabHeader from '../commom/tab/tabHeader'
 import TabContent from '../commom/tab/tabContent'
 import { selectTab, showTabs } from '../commom/tab/tabActions'
 import List from './billingCycleList'
+import Form from './billingCycleForm'
 
 class BillinbCycle extends Component {
 
@@ -36,7 +37,7 @@ class BillinbCycle extends Component {
                                 <List />
                             </TabContent>
                             <TabContent id='tabCreate'>
-                                <h1>Incluir</h1>
+                                <Form />
                             </TabContent>
                             <TabContent id='tabUpdate'>
                                 <h1>Alterar</h1>
