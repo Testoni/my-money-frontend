@@ -8,8 +8,7 @@ class TabContent extends Component {
         return (
             <div 
                 className={`tab-pane ${selected ? 'active' : ''}`}
-                id={this.props.id}
-            >
+                id={this.props.id} >
                 {this.props.children}
             </div>
         )
