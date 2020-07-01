@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Field, arrayInsert, arrayRemove } from 'redux-form'
 import Grid from '../commom/layout/grid'
 import Input from '../commom/form/input'
+import If from '../commom/operator/if'
 
 class ItemList extends Component {
 
@@ -25,6 +26,9 @@ class ItemList extends Component {
             <tr key={index}>
                 <td><Field name={`${this.props.field}[${index}].name`} component={Input} placeholder='Informe o nome' /></td>
                 <td><Field name={`${this.props.field}[${index}].value`} component={Input} placeholder='Informe o valor' /></td>
+                <If test={this.props.showStatus}>
+                    <td><Field name={`${this.props.field}[${index}].status`} component={Input} placeholder='Informe o Status' /></td>
+                </If>
                 <td>
                     <button type='buton' className='btn btn-success' onClick={() => this.add(index + 1)}>
                         <i className='fa fa-plus' />
@@ -50,6 +54,9 @@ class ItemList extends Component {
                             <tr>
                                 <th>Nome</th>
                                 <th>Valor</th>
+                                <If test={this.props.showStatus}>
+                                    <th>Status</th>
+                                </If>
                                 <th className='table-actions'>Ações</th>
                             </tr>
                         </thead>
