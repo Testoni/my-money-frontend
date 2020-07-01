@@ -5,17 +5,17 @@ import { Field, arrayInsert, arrayRemove } from 'redux-form'
 import Grid from '../commom/layout/grid'
 import Input from '../commom/form/input'
 
-class CreditList extends Component {
+class ItemList extends Component {
 
     add(index, item = {}) {
         if (!this.props.readOnly) {
-            this.props.arrayInsert('billingCycleForm', 'credits', index, item)
+            this.props.arrayInsert('billingCycleForm', this.props.field, index, item)
         }
     }
 
     remove(index) {
         if (!this.props.readOnly && this.props.list.length > 1) {
-            this.props.arrayRemove('billingCycleForm', 'credits', index)
+            this.props.arrayRemove('billingCycleForm', this.props.field, index)
         }
     }
 
@@ -23,8 +23,8 @@ class CreditList extends Component {
         const list = this.props.list || []
         return list.map((item, index) => (
             <tr key={index}>
-                <td><Field name={`credits[${index}].name`} component={Input} placeholder='Informe o nome' /></td>
-                <td><Field name={`credits[${index}].value`} component={Input} placeholder='Informe o valor' /></td>
+                <td><Field name={`${this.props.field}[${index}].name`} component={Input} placeholder='Informe o nome' /></td>
+                <td><Field name={`${this.props.field}[${index}].value`} component={Input} placeholder='Informe o valor' /></td>
                 <td>
                     <button type='buton' className='btn btn-success' onClick={() => this.add(index + 1)}>
                         <i className='fa fa-plus' />
@@ -44,7 +44,7 @@ class CreditList extends Component {
         return (
             <Grid col={this.props.cols}>
                 <fieldset>
-                    <legend>Créditos</legend>
+                    <legend>{this.props.legend}</legend>
                     <table className='table'>
                         <thead>
                             <tr>
@@ -65,4 +65,4 @@ class CreditList extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators({ arrayInsert, arrayRemove }, dispatch)
 
-export default connect(null, mapDispatchToProps)(CreditList)
+export default connect(null, mapDispatchToProps)(ItemList)
